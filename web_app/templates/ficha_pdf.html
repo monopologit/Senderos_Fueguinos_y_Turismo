@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ficha – Flora y Fauna Fueguina</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 2cm;
+    }
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      color: #333;
+      font-size: 12pt;
+      position: relative;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #01405e;
+      padding-bottom: 10px;
+    }
+
+    header img {
+      max-width: 150px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 0;
+      color: #01405e;
+      font-size: 20pt;
+    }
+
+    h2 {
+      color: #01405e;
+      font-size: 14pt;
+      margin-top: 25px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 1cm;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 10pt;
+      color: #777;
+      border-top: 1px solid #ccc;
+      padding-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="{{ url_for('static', filename='logo_fueguino.png') }}" alt="Logo Fueguino">
+    <h1>Ficha de Interpretación Ambiental</h1>
+    <p style="font-style: italic;">Una aventura lógica en el fin del mundo</p>
+  </header>
+
+  <h2>🌿 Flora típica</h2>
+  <ul>
+    {% for f in interpretacion.flora %}
+      <li>{{ f }}</li>
+    {% endfor %}
+  </ul>
+
+  <h2>🐾 Fauna destacada</h2>
+  <ul>
+    {% for a in interpretacion.fauna %}
+      <li>{{ a }}</li>
+    {% endfor %}
+  </ul>
+
+  <h2>⚠️ Especie Introducida</h2>
+  <p>{{ interpretacion.invasora }}</p>
+
+  <footer>
+    Sistema Experto de Senderismo y Turismo Fueguino · Carlos, Tierra del Fuego · {{ año|default("2025") }}
+  </footer>
+
+</body>
+</html>

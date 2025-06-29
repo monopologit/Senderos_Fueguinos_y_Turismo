@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema Experto – Tierra del Fuego</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script>
+    function mostrarCampos() {
+      const actividad = document.getElementById("actividad").value;
+      document.getElementById("campoDificultad").style.display = actividad === "Senderismo" ? "block" : "none";
+    }
+  </script>
+</head>
+<body>
+  <img src="{{ url_for('static', filename='logo_fueguino.png') }}" alt="Logo Fueguino" class="logo">
+  <h1>🧭 Sistema Experto de Senderismo y Turismo Fueguino</h1>
+  <p style="text-align: center; font-style: italic; margin-top: -15px;">Una aventura lógica en el fin del mundo</p>
+
+  <form method="post" onchange="mostrarCampos()">
+    <label for="actividad">Tipo de actividad:</label>
+    <select id="actividad" name="actividad" required>
+      {% for a in actividades %}
+        <option value="{{ a }}" {% if a == actividad_seleccionada %}selected{% endif %}>
+          {% if a == 'Imagen' %}Imagen (Flora y Fauna){% else %}{{ a }}{% endif %}
+        </option>
+      {% endfor %}
+    </select>
+
+    <div id="campoDificultad" style="display: {{ 'block' if actividad_seleccionada == 'Senderismo' else 'none' }}">
+      <label for="dificultad">Dificultad (solo senderismo):</label>
+      <select name="dificultad">
+        <option value="Todas">Todas</option>
+        <option value="Baja">Baja</option>
+        <option value="Media">Media</option>
+        <option value="Alta">Alta</option>
+      </select>
+    </div>
+
+    <label for="estacion">Estación del año:</label>
+    <select name="estacion" required>
+      {% for e in estaciones %}
+        <option value="{{ e }}" {% if e == estacion %}selected{% endif %}>{{ e }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="ubicacion">Ubicación deseada:</label>
+    <select name="ubicacion" required>
+      {% for u in ubicaciones %}
+        <option value="{{ u }}" {% if u == ubicacion %}selected{% endif %}>{{ u }}</option>
+      {% endfor %}
+    </select>
+
+    <button type="submit">Consultar recomendaciones</button>
+  </form>
+
+  {% if conclusiones %}
+    <div class="bloque">
+      <h2>🧠 Reglas activadas:</h2>
+      {% for c in conclusiones %}
+        <div class="tarjeta">
+          <strong>{{ c.rule_id }}</strong>: {{ c.conclusion }}<br>
+          <em>{{ c.explanation }}</em>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if resultados %}
+    <div class="bloque">
+      {% if actividad_seleccionada in ["Senderismo", "Imagen"] %}
+        <h2>🥾 Senderos recomendados:</h2>
+        {% for s in resultados %}
+          <div class="tarjeta">
+            <strong>{{ s.name }}</strong> – {{ s.location }} – Dificultad: {{ s.difficulty }}<br>
+            ⏱️ {{ s.duration }} – <a href="{{ s.gpx_url }}">📍 GPX</a>
+          </div>
+        {% endfor %}
+
+      {% elif actividad_seleccionada == "Cultura" %}
+        <h2>🏛️ Lugares culturales recomendados:</h2>
+        {% for m in resultados %}
+          <div class="tarjeta">
+            <strong>{{ m.name }}</strong> – {{ m.location }}<br>
+            Tema: {{ m.theme }} | 🕑 Horarios: {{ m.hours }} | 📆 Temporada: {{ m.season }}<br>
+            📝 {{ m.notes }}
+          </div>
+        {% endfor %}
+
+      {% elif actividad_seleccionada == "Pesca" %}
+        <h2>🎣 Sitios de pesca sugeridos:</h2>
+        {% for p in resultados %}
+          <div class="tarjeta">
+            <strong>{{ p.name }}</strong> – {{ p.location_type }}<br>
+            Especies: {{ p.species | join(", ") }} | Temporada: {{ p.season }}<br>
+            📝 {{ p.notes }}
+          </div>
+        {% endfor %}
+
+      {% elif actividad_seleccionada == "Invierno" %}
+        <h2>❄️ Actividades de invierno recomendadas:</h2>
+        {% for d in resultados %}
+          <div class="tarjeta">
+            <strong>{{ d.name }}</strong> – {{ d.location }}<br>
+            Actividades: {{ d.activities | join(", ") }} | Nivel: {{ d.level }} | Temporada: {{ d.season }}<br>
+            📝 {{ d.notes }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% if interpretacion_natural %}
+  <p style="text-align: center; margin-top: 20px;">
+  <a href="{{ url_for('descargar_pdf') }}" class="boton-descarga">📄 Descargar ficha de flora y fauna en PDF</a>
+</p>
+
+    <div class="bloque">
+      <h2>🌿 Interpretación ambiental del bosque fueguino</h2>
+
+      <h3>Flora típica:</h3>
+      <ul>
+        {% for f in interpretacion_natural.flora %}
+          <li>{{ f }}</li>
+        {% endfor %}
+      </ul>
+
+      <h3>Fauna destacada:</h3>
+      <ul>
+        {% for a in interpretacion_natural.fauna %}
+          <li>{{ a }}</li>
+        {% endfor %}
+      </ul>
+
+      <h3>⚠️ Especie introducida:</h3>
+      <p>{{ interpretacion_natural.invasora }}</p>
+    </div>
+  {% endif %}
+
+</body>
+</html>
