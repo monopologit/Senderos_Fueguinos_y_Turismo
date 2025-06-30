@@ -1,158 +1,189 @@
-Sistema Experto de Senderismo y Turismo Fueguino
+<p align="center">
+  <img src="web_app/static/Logo_fueguino.png" alt="Logo Fueguino" width="240"/>
+</p>
 
-Una aventura lógica en el fin del mundo
+<h1 align="center">Sistema Experto de Senderismo y Turismo Fueguino</h1>
+<p align="center"><em>Una aventura lógica en el fin del mundo</em></p>
 
-Este sistema experto es una aplicación web desarrollada con Flask que brinda recomendaciones personalizadas para actividades turísticas en la provincia de Tierra del Fuego, Argentina. A través de reglas lógicas e interpretación ambiental, permite a residentes y visitantes descubrir senderos, museos, sitios de pesca y actividades de invierno con enfoque educativo y territorial.
+---
 
-Características principales
+### 🎓 Proyecto académico
 
-Recomendaciones personalizadas según estación, actividad, ubicación y nivel de dificultad
+- **Materia:** Desarrollo de Sistemas de Inteligencia Artificial  
+- **Profesor:** Lic. Martín Mirabete  
+- **Carrera:** Ciencia de Datos e Inteligencia Artificial  
+- **Instituto:** Politécnico Malvinas Argentinas – Río Grande, Tierra del Fuego  
+- **Alumno:** Carlos Alberto Gongora  
 
-Motor de inferencia lógico que justifica sus respuestas con reglas activadas y explicaciones
+---
 
-Interfaz web clara, responsiva y accesible desde dispositivos móviles
+### 🧠 ¿Qué es un sistema experto?
 
-Información interpretativa sobre flora y fauna fueguina al elegir la actividad “Imagen (Flora y Fauna)”
+Un **sistema experto** es un programa que simula el razonamiento de una persona especialista en un área concreta. Utiliza hechos, reglas y deducción lógica para emitir recomendaciones o resolver problemas.
 
-Generación dinámica de fichas ambientales en PDF
+Sus componentes fundamentales son:
 
-Integración de enlaces GPX y datos temáticos de alto valor regional
+- **Base de conocimientos:** reglas y hechos que representan el saber experto  
+- **Motor de inferencia:** mecanismo que evalúa las reglas y activa conclusiones  
+- **Justificación lógica:** explica por qué se llegó a determinada respuesta  
+- **Interfaz de usuario:** punto de interacción para introducir datos y obtener resultados  
 
-Tecnologías utilizadas
-Python 3.11+
+---
 
-Flask
+### 🧩 ¿En qué se basa este sistema experto fueguino?
 
-HTML + CSS (diseño responsive)
+Este proyecto fue desarrollado con enfoque territorial, educativo y lógico. Su funcionamiento se apoya en:
 
-Motor de inferencia artesanal (reglas + hechos)
+- ✅ Reglas explícitas en código Python, construidas manualmente  
+- ✅ Separación entre hechos (respuestas del usuario) y conocimiento (reglas)  
+- ✅ Evaluación condicional por estación, motivación, dificultad, localidad  
+- ✅ Motor de inferencia artesanal que explica sus conclusiones  
+- ✅ Modularidad que permite extender el sistema a nuevos dominios  
 
-xhtml2pdf para exportación de PDFs interpretativos
+---
 
-Estructura del repositorio
+### 🧱 Arquitectura general del sistema
 
-SENDEROS_FUEGUINOS_Y_TURISMO/
+[ Usuario ]
 
-├── .venv/                      # Entorno virtual
+    │ 
 
-├── docs/                      # Documentación técnica
+    ▼ 
 
-├── sistema_experto/           # Motor de inferencia y base de conocimiento
+[ Interfaz web Flask ] 
 
-├── tracks/                    # Archivos GPX y rutas sugeridas
+    │ 
 
-├── web_app/
+    ▼ 
 
-│   ├── app.py                 # App Flask principal
+[ Adaptador de hechos ] → Traduce respuestas en hechos lógicos 
 
-│   ├── static/
+    │ 
 
-│   │   ├── style.css
+    ▼ 
 
-│   │   └── logo_fueguino.png
+[ Motor de inferencia ] 
 
-│   └── templates/
+    │ 
 
-│       ├── index.html
+    ├─▶ Evalúa reglas (senderos, pesca, cultura, imagen) 
 
-│       └── ficha_pdf.html
+    └─▶ Devuelve recomendaciones y justificación 
 
-├── README.md
+    ▼ 
 
-└── requirements.txt
+[ Respuesta web o PDF interpretativo ]
 
-Dominios implementados
 
-Senderismo: filtros por dificultad, estación y ubicación con motivación “Ejercicio”
+---
 
-Imagen (Flora y Fauna): selección de senderos con motivación “Naturaleza” y bloque interpretativo ambiental
+### ✨ Funcionalidades principales
 
-Cultura: museos por localidad, tema y temporada
+- Recomendaciones personalizadas según estación, región, dificultad y motivación  
+- Justificación de cada sugerencia con reglas activadas visibles para el usuario  
+- Exportación en PDF para la actividad “Imagen (Flora y Fauna)”  
+- Interfaz web compatible con dispositivos móviles  
+- Información contextual sobre flora, fauna y actividades fueguinas  
 
-Pesca: sitios y especies según temporada y ubicación
+---
 
-Invierno: actividades estacionales por nivel y región
+### 🌍 Dominios implementados
 
-Exportación PDF
+- **Senderismo**: senderos por dificultad, estación y motivación “Ejercicio”  
+- **Imagen (Flora y Fauna)**: recorridos interpretativos por motivación “Naturaleza”  
+- **Cultura**: museos por localidad y enfoque temático  
+- **Pesca**: zonas y especies disponibles según época del año  
+- **Invierno**: deportes estacionales como esquí, snowboard, patinaje  
 
-El sistema permite descargar una ficha interpretativa en PDF desde la actividad “Imagen”, con información de:
+---
 
-Flora típica fueguina
+### 🖨 Exportación PDF interpretativa
 
-Fauna destacada
+Desde el dominio “Imagen”, el sistema genera una ficha con:
 
-Especie invasora (castor canadiense)
+- Flora típica (lenga, notro, coirón)  
+- Fauna fueguina (zorros, cauquenes, carpinteros)  
+- Especie invasora: castor canadiense  
+- Encabezado visual con logo y pie de página educativo  
 
-Encabezado visual con logo y pie de página explicativo
+---
 
-Instalación y uso local
+### 💻 Instalación y ejecución local
 
-Requisitos previos
+#### Requisitos
 
-Python 3.11 o superior
+- Python 3.11+  
+- pip  
+- Navegador web moderno  
+- Git (opcional)
 
-Git
+#### Instrucciones
 
-Navegador web
-
-Clonación del repositorio
-
+```bash
+# Clonar el repositorio
 git clone https://github.com/monopologit/Senderos_Fueguinos_y_Turismo.git
-
 cd Senderos_Fueguinos_y_Turismo
 
-Creación del entorno virtual (opcional)
-
+# Crear entorno virtual (opcional)
 python -m venv .venv
+.venv\Scripts\activate           # en Windows
+source .venv/bin/activate       # en Linux/macOS
 
-.venv\Scripts\activate           # En Windows
-
-# o
-
-source .venv/bin/activate       # En Linux/macOS
-
-Instalación de dependencias
-
+# Instalar dependencias
 pip install -r requirements.txt
 
-Ejecución del sistema
-
-set FLASK_APP=web_app/app.py     # En Windows
-
+# Ejecutar servidor Flask
+set FLASK_APP=web_app/app.py     # en Windows
 flask run
-
 # o
-
-export FLASK_APP=web_app/app.py  # En Linux/macOS
-
+export FLASK_APP=web_app/app.py  # en Linux/macOS
 flask run
 
-Accedé desde el navegador a: http://127.0.0.1:5000
+Una vez iniciado, accedé a: http://127.0.0.1:5000
 
-Acceso desde el celular (opcional)
-Si querés utilizar el sistema desde tu teléfono conectado a la misma red Wi-Fi que tu computadora:
+### Acceso desde celular (en red local)
 
-Buscá la IP local de tu computadora:
+1) Buscá tu IP local con ipconfig (Windows) o ifconfig (Linux/macOS)
 
-Windows: Abrí la terminal (cmd) y ejecutá ipconfig
+2) Ejecutá el servidor así:
 
-Linux/macOS: Terminal y ejecutá ifconfig o ip a
+```bash
+    flask run --host=0.0.0.0
 
-Copiá la dirección IPv4 (por ejemplo: 192.168.1.4)
-
-Iniciá el servidor Flask con:
-
-bash
-flask run --host=0.0.0.0
-
-Desde tu celular, abrí el navegador y accedé a:
+3) Ingresá desde el navegador del celular:
 
 http://TU_IP_LOCAL:5000
 
-Por ejemplo: http://192.168.1.4:5000
+(ambos dispositivos deben estar conectados a la misma red Wi-Fi)
 
-> Esto permite probar y visualizar la app desde cualquier dispositivo conectado a la red local, ideal para tests en campo o en entorno real.
+### Estructura del repositorio
 
-Autoría
+SENDEROS_FUEGUINOS_Y_TURISMO/
 
-Carlos A. Gongora – Tierra del Fuego, Argentina Explorador de ideas estructuradas con corazón lógico y espíritu fueguino.
+├── sistema_experto/              ← Motor de inferencia y reglas
+
+├── web_app/
+
+│   ├── static/                   ← Logo, CSS
+
+│   ├── templates/                ← HTML + plantilla PDF
+
+│   └── app.py                    ← Punto de entrada Flask
+
+├── tracks/                       ← Archivos GPX de senderos
+
+├── docs/                         ← Documentación técnica
+
+├── requirements.txt
+
+└── README.md
+
+### Licencia y versión
+
+- Versión: v1.0.0
+
+- Licencia: MIT (puede agregarse el archivo LICENSE si se desea publicar abiertamente)
+
+### Autor
+
+Carlos Alberto Gongora Explorador de ideas estructuradas con lógica. Desarrollado en Tierra del Fuego, al sur del sur.
