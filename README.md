@@ -7,7 +7,7 @@
 
 ---
 
-###  Proyecto académico
+###  Proyecto exámen final
 
 - **Materia:** Desarrollo de Sistemas de Inteligencia Artificial  
 - **Profesor:** Martín Mirabete  
