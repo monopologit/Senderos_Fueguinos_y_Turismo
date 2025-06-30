@@ -7,7 +7,7 @@
 
 ---
 
-### 🎓 Proyecto académico
+###  Proyecto académico
 
 - **Materia:** Desarrollo de Sistemas de Inteligencia Artificial  
 - **Profesor:** Lic. Martín Mirabete  
@@ -17,7 +17,7 @@
 
 ---
 
-### 🧠 ¿Qué es un sistema experto?
+###  ¿Qué es un sistema experto?
 
 Un **sistema experto** es un programa que simula el razonamiento de una persona especialista en un área concreta. Utiliza hechos, reglas y deducción lógica para emitir recomendaciones o resolver problemas.
 
@@ -30,19 +30,19 @@ Sus componentes fundamentales son:
 
 ---
 
-### 🧩 ¿En qué se basa este sistema experto fueguino?
+###  ¿En qué se basa este sistema experto fueguino?
 
 Este proyecto fue desarrollado con enfoque territorial, educativo y lógico. Su funcionamiento se apoya en:
 
-- ✅ Reglas explícitas en código Python, construidas manualmente  
-- ✅ Separación entre hechos (respuestas del usuario) y conocimiento (reglas)  
-- ✅ Evaluación condicional por estación, motivación, dificultad, localidad  
-- ✅ Motor de inferencia artesanal que explica sus conclusiones  
-- ✅ Modularidad que permite extender el sistema a nuevos dominios  
+-  Reglas explícitas en código Python, construidas manualmente  
+-  Separación entre hechos (respuestas del usuario) y conocimiento (reglas)  
+-  Evaluación condicional por estación, motivación, dificultad, localidad  
+-  Motor de inferencia artesanal que explica sus conclusiones  
+-  Modularidad que permite extender el sistema a nuevos dominios  
 
 ---
 
-### 🧱 Arquitectura general del sistema
+###  Arquitectura general del sistema
 
 [ Usuario ]
 
@@ -77,7 +77,7 @@ Este proyecto fue desarrollado con enfoque territorial, educativo y lógico. Su 
 
 ---
 
-### ✨ Funcionalidades principales
+###  Funcionalidades principales
 
 - Recomendaciones personalizadas según estación, región, dificultad y motivación  
 - Justificación de cada sugerencia con reglas activadas visibles para el usuario  
@@ -87,7 +87,7 @@ Este proyecto fue desarrollado con enfoque territorial, educativo y lógico. Su 
 
 ---
 
-### 🌍 Dominios implementados
+###  Dominios implementados
 
 - **Senderismo**: senderos por dificultad, estación y motivación “Ejercicio”  
 - **Imagen (Flora y Fauna)**: recorridos interpretativos por motivación “Naturaleza”  
@@ -119,20 +119,20 @@ Desde el dominio “Imagen”, el sistema genera una ficha con:
 
 #### Instrucciones
 
-```bash
-# Clonar el repositorio
+
+### Clonar el repositorio
 git clone https://github.com/monopologit/Senderos_Fueguinos_y_Turismo.git
 cd Senderos_Fueguinos_y_Turismo
 
-# Crear entorno virtual (opcional)
+### Crear entorno virtual (opcional)
 python -m venv .venv
 .venv\Scripts\activate           # en Windows
 source .venv/bin/activate       # en Linux/macOS
 
-# Instalar dependencias
+### Instalar dependencias
 pip install -r requirements.txt
 
-# Ejecutar servidor Flask
+### Ejecutar servidor Flask
 set FLASK_APP=web_app/app.py     # en Windows
 flask run
 # o
@@ -147,7 +147,7 @@ Una vez iniciado, accedé a: http://127.0.0.1:5000
 
 2) Ejecutá el servidor así:
 
-```bash
+
     flask run --host=0.0.0.0
 
 3) Ingresá desde el navegador del celular:
