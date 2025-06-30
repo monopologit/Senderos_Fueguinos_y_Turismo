@@ -10,7 +10,7 @@
 ###  Proyecto académico
 
 - **Materia:** Desarrollo de Sistemas de Inteligencia Artificial  
-- **Profesor:** Lic. Martín Mirabete  
+- **Profesor:** Martín Mirabete  
 - **Carrera:** Ciencia de Datos e Inteligencia Artificial  
 - **Instituto:** Politécnico Malvinas Argentinas – Río Grande, Tierra del Fuego  
 - **Alumno:** Carlos Alberto Gongora  
@@ -97,7 +97,7 @@ Este proyecto fue desarrollado con enfoque territorial, educativo y lógico. Su 
 
 ---
 
-### 🖨 Exportación PDF interpretativa
+###  Exportación PDF interpretativa
 
 Desde el dominio “Imagen”, el sistema genera una ficha con:
 
@@ -108,7 +108,7 @@ Desde el dominio “Imagen”, el sistema genera una ficha con:
 
 ---
 
-### 💻 Instalación y ejecución local
+###  Instalación y ejecución local
 
 #### Requisitos
 
@@ -135,7 +135,7 @@ pip install -r requirements.txt
 ### Ejecutar servidor Flask
 set FLASK_APP=web_app/app.py     # en Windows
 flask run
-# o
+ o
 export FLASK_APP=web_app/app.py  # en Linux/macOS
 flask run
 
