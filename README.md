@@ -174,6 +174,8 @@ SENDEROS_FUEGUINOS_Y_TURISMO/
 
 ├── docs/                         ← Documentación técnica
 
+├── Video/                         ← Video explicativo evaluativo
+
 ├── requirements.txt
 
 └── README.md
